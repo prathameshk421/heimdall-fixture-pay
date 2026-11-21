@@ -13,7 +13,7 @@ type createRefundJSON struct {
 	Amount int64 `json:"amount"`
 }
 
-// refundJSON is the wire form of a refund.
+// refundJSON is the wire form of a refund, as POST /payments/{id}/refunds returns it.
 type refundJSON struct {
 	ID        string `json:"id"`
 	PaymentID string `json:"payment_id"`
