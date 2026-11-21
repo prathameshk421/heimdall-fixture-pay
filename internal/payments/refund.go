@@ -26,10 +26,20 @@ type refundLog struct {
 	refunds []Refund
 }
 
-func (l *refundLog) add(r Refund) {
+// ErrDuplicateRefund says a refund with that id is already recorded.
+var ErrDuplicateRefund = errors.New("refund already recorded")
+
+// record keeps r unless a refund with the same id is already recorded.
+func (l *refundLog) record(r Refund) error {
 	l.mu.Lock()
 	defer l.mu.Unlock()
+	for _, done := range l.refunds {
+		if done.ID == r.ID {
+			return ErrDuplicateRefund
+		}
+	}
 	l.refunds = append(l.refunds, r)
+	return nil
 }
 
 // total returns the sum of the refunds already made on paymentID.
@@ -58,6 +68,6 @@ func (s *Service) Refund(merchantID, paymentID string, amount int64) (Refund, er
 		return Refund{}, ErrExceedsPayment
 	}
 	r := Refund{ID: s.newID(), PaymentID: p.ID, Amount: amount}
-	s.refunds.add(r)
+	s.refunds.record(r)
 	return r, nil
 }
