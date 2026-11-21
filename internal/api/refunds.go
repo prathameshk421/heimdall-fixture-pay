@@ -8,7 +8,7 @@ import (
 	"github.com/aarush323/heimdall-fixture-pay/internal/payments"
 )
 
-// createRefundJSON is the body of POST /payments/{id}/refunds.
+// createRefundJSON is the request body of POST /payments/{id}/refunds.
 type createRefundJSON struct {
 	Amount int64 `json:"amount"`
 }
