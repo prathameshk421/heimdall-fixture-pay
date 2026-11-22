@@ -34,6 +34,4 @@ chat: { bridge: mattermost, verbosity: milestones, decisions_in_room: true }
 github: { mode: poll, interval: 10s }
 tracker: { kind: jira, mode: poll, interval: 30s }
 agents: { runtime: opencode }
-action: { mode: shadow
-  break_glass:
-    - prathameshk421, budget: { per_pr_usd: 1.0, monthly_usd: 50 } }
+action: { mode: shadow, break_glass: [prathameshk421], budget: { per_pr_usd: 1.0, monthly_usd: 50 } }
