@@ -38,7 +38,7 @@ jobs:
       actions: read # the trigger and proof runs' artifacts
       security-events: read # code scanning alerts for the analyzers clause
     steps:
-      - uses: prathameshk421/heimdall-fixture-pay/deploy/action@6e539c25769fe940a3e473cae722c56d8f9e4c3f # heimdall-pin
+      - uses: prathameshk421/heimdall-fixture-pay/deploy/action@936cd52bbe976fef0a064a48912b8ec69f7c6dee # heimdall-pin
         with:
           step: gate
         env:
