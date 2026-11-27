@@ -39,10 +39,10 @@ jobs:
       security-events: read # code scanning alerts for the analyzers clause
     steps:
       # Build heimdall before any privileged secret enters the step environment.
-      - uses: prathameshk421/Heimdall/deploy/action@1a243c872b931bd94fe5f44aa4f991442c63c1c6 # heimdall-pin
+      - uses: prathameshk421/Heimdall/deploy/action@e4c8d7e08dee470e76b4235a45045c671063aa8b # heimdall-pin
         with:
           step: install
-      - uses: prathameshk421/Heimdall/deploy/action@1a243c872b931bd94fe5f44aa4f991442c63c1c6 # heimdall-pin
+      - uses: prathameshk421/Heimdall/deploy/action@e4c8d7e08dee470e76b4235a45045c671063aa8b # heimdall-pin
         with:
           step: gate
         env:
