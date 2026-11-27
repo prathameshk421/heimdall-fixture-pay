@@ -28,7 +28,7 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           persist-credentials: false
       # Build heimdall before any toolchain of the PR is on PATH, and before any secret is in the environment.
-      - uses: prathameshk421/heimdall-fixture-pay/deploy/action@afdc619993a1f00257babee2453601b0774b877b # heimdall-pin
+      - uses: prathameshk421/Heimdall/deploy/action@1a243c872b931bd94fe5f44aa4f991442c63c1c6 # heimdall-pin
         with:
           step: install
       # The PR's Go version is read from its go.mod as data. The sandbox runs the tests with this toolchain.
@@ -37,10 +37,10 @@ jobs:
         with:
           go-version-file: go.mod
           cache: false
-      - uses: prathameshk421/heimdall-fixture-pay/deploy/action@afdc619993a1f00257babee2453601b0774b877b # heimdall-pin
+      - uses: prathameshk421/Heimdall/deploy/action@1a243c872b931bd94fe5f44aa4f991442c63c1c6 # heimdall-pin
         with:
           step: trigger
-      - uses: prathameshk421/heimdall-fixture-pay/deploy/action@afdc619993a1f00257babee2453601b0774b877b # heimdall-pin
+      - uses: prathameshk421/Heimdall/deploy/action@1a243c872b931bd94fe5f44aa4f991442c63c1c6 # heimdall-pin
         with:
           step: proof
           model-base-url: ${{ vars.HEIMDALL_MODEL_BASE_URL || 'https://openrouter.ai/api/v1' }}

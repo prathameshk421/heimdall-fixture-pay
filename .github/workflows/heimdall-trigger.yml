@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 10
     steps:
       # Replace the SHA with the Heimdall commit you install (deploy/action/README.md). Pin a full SHA, never a tag.
-      - uses: prathameshk421/heimdall-fixture-pay/deploy/action@afdc619993a1f00257babee2453601b0774b877b # heimdall-pin
+      - uses: prathameshk421/Heimdall/deploy/action@1a243c872b931bd94fe5f44aa4f991442c63c1c6 # heimdall-pin
         with:
           step: trigger
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
